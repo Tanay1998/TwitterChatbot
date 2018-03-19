@@ -1,0 +1,36 @@
+Idea:
+	We wanted our chatbot to be more responsive to colloquial tongue, and so we decided to train it with the twitter dataset. It consists of tweets and people’s replies to them.
+
+Preprocessing: 
+	Steps:
+	- Filter unnecessary characters
+	- Divide sentences into words 
+	- Truncate all lines to 20 words
+	- Remove pairs with empty strings 
+	- Create word index dictionaries
+	- Create vocab files 
+	- Generate train and test files 
+	- Added <s> </s> to the decoder data
+
+Dataset:
+	Q[] and corresponding A[] per datapoint
+	Training set size: 	241,313 pairs
+	Test set size: 		26,205 pairs
+	Maximum length: 	22 tokens (clipped) 
+	Vocab size: 		6004 tokens
+	Bucket sizes: 
+	- 5: 3206
+	- 10: 51158
+	- 12: 29887
+	- 15: 48423
+	- 18: 53119
+	- 22: 55520
+
+Improvements: 
+	- We processed the twitter dataset and prepared it for training with the model
+	- Resized the buckets, trained the chatbot, did hyperparameter tuning (because initially, it was just printing mostly 'the's) to make it work
+
+Conclusions and Learnings: 
+	- Chatbot performed significantly better than the base model 
+	- The twitter data was more suited to a colloquial chatbot 
+	- Hyperparameter tuning made a difference and also sped up training time and prevented overfitting
